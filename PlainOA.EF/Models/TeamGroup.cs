@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,9 @@ namespace PlainOA.EF.Models
     public class TeamGroup
     {
         [Key]
-        public int Id { get; set; }
+        public int TeamGroupId { get; set; }
 
-        public string GroupName { get; set; }
+        public string TeamGroupName { get; set; }
 
         public List<Employee> Employees { get; set; }
     }
