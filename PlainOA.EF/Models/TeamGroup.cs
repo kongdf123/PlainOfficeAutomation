@@ -10,6 +10,11 @@ namespace PlainOA.EF.Models
     [Table("TeamGroup")]
     public class TeamGroup
     {
+        [Key]
+        public int Id { get; set; }
 
+        public string GroupName { get; set; }
+
+        public List<Employee> Employees { get; set; }
     }
 }

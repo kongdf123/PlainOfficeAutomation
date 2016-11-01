@@ -10,5 +10,7 @@ namespace PlainOA.EF.Models
     [Table("Department")]
     public class Department
     {
+        [Key]
+        public int Id { get; set; }
     }
 }

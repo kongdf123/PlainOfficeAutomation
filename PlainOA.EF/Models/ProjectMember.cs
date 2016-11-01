@@ -10,5 +10,7 @@ namespace PlainOA.EF.Models
     [Table("ProjectMember")]
     public class ProjectMember
     {
+        [Key]
+        public int Id { get; set; }
     }
 }

@@ -10,6 +10,11 @@ namespace PlainOA.EF.Models
     [Table("EmployeeAccount")]
     public class EmployeeAccount
     {
+        [Key]
+        public int Id { get; set; }
 
+        public string Email { get; set; }
+
+        public string Password { get; set; }
     }
 }
