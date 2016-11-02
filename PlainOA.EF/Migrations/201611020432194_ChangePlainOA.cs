@@ -3,7 +3,7 @@ namespace PlainOA.EF.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddPlainOA : DbMigration
+    public partial class ChangePlainOA : DbMigration
     {
         public override void Up()
         {
@@ -11,17 +11,18 @@ namespace PlainOA.EF.Migrations
                 "dbo.Department",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        DepartmentId = c.Int(nullable: false, identity: true),
+                        DepartmentName = c.String(maxLength: 50),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.DepartmentId);
             
             CreateTable(
                 "dbo.EmployeeAccount",
                 c => new
                     {
                         EmployeeId = c.Int(nullable: false),
-                        Email = c.String(),
-                        Password = c.String(),
+                        Email = c.String(maxLength: 100),
+                        Password = c.String(maxLength: 50),
                         Timestamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                     })
                 .PrimaryKey(t => t.EmployeeId)
@@ -45,34 +46,26 @@ namespace PlainOA.EF.Migrations
                 .Index(t => t.Project_Id);
             
             CreateTable(
-                "dbo.TeamGroup",
-                c => new
-                    {
-                        TeamGroupId = c.Int(nullable: false, identity: true),
-                        TeamGroupName = c.String(),
-                    })
-                .PrimaryKey(t => t.TeamGroupId);
-            
-            CreateTable(
-                "dbo.ProjectMember",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.Project",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ProjectName = c.String(),
+                        ProjectName = c.String(maxLength: 50),
                         DepartmentId = c.Int(nullable: false),
                         ProjectDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Department", t => t.DepartmentId, cascadeDelete: true)
                 .Index(t => t.DepartmentId);
+            
+            CreateTable(
+                "dbo.TeamGroup",
+                c => new
+                    {
+                        TeamGroupId = c.Int(nullable: false, identity: true),
+                        TeamGroupName = c.String(maxLength: 50),
+                    })
+                .PrimaryKey(t => t.TeamGroupId);
             
             CreateTable(
                 "dbo.TeamGroupEmployee",
@@ -91,11 +84,11 @@ namespace PlainOA.EF.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Employee", "Project_Id", "dbo.Project");
-            DropForeignKey("dbo.Project", "DepartmentId", "dbo.Department");
             DropForeignKey("dbo.EmployeeAccount", "EmployeeId", "dbo.Employee");
             DropForeignKey("dbo.TeamGroupEmployee", "Employee_EmployeeId", "dbo.Employee");
             DropForeignKey("dbo.TeamGroupEmployee", "TeamGroup_TeamGroupId", "dbo.TeamGroup");
+            DropForeignKey("dbo.Employee", "Project_Id", "dbo.Project");
+            DropForeignKey("dbo.Project", "DepartmentId", "dbo.Department");
             DropForeignKey("dbo.Employee", "DepartmentId", "dbo.Department");
             DropIndex("dbo.TeamGroupEmployee", new[] { "Employee_EmployeeId" });
             DropIndex("dbo.TeamGroupEmployee", new[] { "TeamGroup_TeamGroupId" });
@@ -104,9 +97,8 @@ namespace PlainOA.EF.Migrations
             DropIndex("dbo.Employee", new[] { "DepartmentId" });
             DropIndex("dbo.EmployeeAccount", new[] { "EmployeeId" });
             DropTable("dbo.TeamGroupEmployee");
-            DropTable("dbo.Project");
-            DropTable("dbo.ProjectMember");
             DropTable("dbo.TeamGroup");
+            DropTable("dbo.Project");
             DropTable("dbo.Employee");
             DropTable("dbo.EmployeeAccount");
             DropTable("dbo.Department");

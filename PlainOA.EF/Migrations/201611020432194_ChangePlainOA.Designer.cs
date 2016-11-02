@@ -7,13 +7,13 @@ namespace PlainOA.EF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddPlainOA : IMigrationMetadata
+    public sealed partial class ChangePlainOA : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddPlainOA));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangePlainOA));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611011649489_AddPlainOA"; }
+            get { return "201611020432194_ChangePlainOA"; }
         }
         
         string IMigrationMetadata.Source

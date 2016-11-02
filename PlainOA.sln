@@ -12,10 +12,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainOA.EF", "PlainOA.EF\PlainOA.EF.csproj", "{B900F7CC-9B6C-42BD-A452-3B6672FC1999}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainOA.Web", "PlainOA.Web\PlainOA.Web.csproj", "{7468F3EC-C9E1-4B64-BDC6-EFA4F552E20B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B900F7CC-9B6C-42BD-A452-3B6672FC1999} = {B900F7CC-9B6C-42BD-A452-3B6672FC1999}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainOA.Tests", "PlainOA.Tests\PlainOA.Tests.csproj", "{D81C8134-6AC3-4D75-B09D-1E5FADA67DAF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{9C7680D7-4DF7-4A55-A040-13DA1487085F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

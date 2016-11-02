@@ -14,8 +14,10 @@ namespace PlainOA.EF.Models
         [Key]
         public int EmployeeId { get; set; }
 
+        [MaxLength(100)]
         public string Email { get; set; }
 
+        [MaxLength(50)]
         public string Password { get; set; }
 
         [Timestamp]

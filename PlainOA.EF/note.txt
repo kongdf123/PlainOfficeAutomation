@@ -1,0 +1,18 @@
+-> Enable-Migrations -ContextTypeName ArchiveContext -StartUpProjectName DbMigrationsTool 
+-> help Add-Migration
+-> Add-Migration AddMembership -ProjectName JobSchedulePlatform.Service
+-> Update-Database -TargetMigration AddMembership -StartUpProjectName JobSchedulePlatform.Service -ConnectionStringName JobSchedulePlatformConnection
+issue 1:
+Add-Migration UpdateMembership -ProjectName JobSchedulePlatform.Service
+Unable to generate an explicit migration because the following explicit migrations are pending: [201608020250223_AddMembership]. Apply the pending explicit migrations before attempting to generate a new explicit migration.
+Answers :
+Add-Migration AddMembership -F -ProjectName JobSchedulePlatform.Service
+
+Update-Database –TargetMigration: $InitialDatabase
+Run the Update-Database –Verbose command in Package Manager Console.
+
+
+
+ 1.Update-Database –TargetMigration: $InitialDatabase -Force
+ 2.Add-Migration ChangePlainOA
+ 3.Update-Database -TargetMigration ChangePlainOA -StartUpProjectName PlainOA.EF -Force

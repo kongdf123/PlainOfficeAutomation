@@ -50,16 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201611011649489_AddPlainOA.cs" />
-    <Compile Include="Migrations\201611011649489_AddPlainOA.Designer.cs">
-      <DependentUpon>201611011649489_AddPlainOA.cs</DependentUpon>
+    <Compile Include="Migrations\201611020432194_ChangePlainOA.cs" />
+    <Compile Include="Migrations\201611020432194_ChangePlainOA.Designer.cs">
+      <DependentUpon>201611020432194_ChangePlainOA.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeAccount.cs" />
     <Compile Include="Models\Project.cs" />
-    <Compile Include="Models\ProjectMember.cs" />
     <Compile Include="Models\TeamGroup.cs" />
     <Compile Include="PlainOADbConfiguration.cs" />
     <Compile Include="PlainOADbContext.cs" />
@@ -70,8 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611011649489_AddPlainOA.resx">
-      <DependentUpon>201611011649489_AddPlainOA.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611020432194_ChangePlainOA.resx">
+      <DependentUpon>201611020432194_ChangePlainOA.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

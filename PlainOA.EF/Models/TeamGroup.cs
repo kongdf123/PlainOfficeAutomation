@@ -14,6 +14,7 @@ namespace PlainOA.EF.Models
         [Key]
         public int TeamGroupId { get; set; }
 
+        [MaxLength(50)]
         public string TeamGroupName { get; set; }
 
         public List<Employee> Employees { get; set; }

@@ -12,6 +12,10 @@ namespace PlainOA.EF.Models
     public class Department
     {
         [Key]
-        public int Id { get; set; }
+        public int DepartmentId { get; set; }
+
+        [MaxLength(50)]
+        public string DepartmentName { get; set; }
+
     }
 }

@@ -14,6 +14,7 @@ namespace PlainOA.EF.Models
         [Key]
         public int Id { get; set; }
 
+        [MaxLength(50)]
         public string ProjectName { get; set; }
         
         public int DepartmentId { get; set; }
@@ -23,5 +24,6 @@ namespace PlainOA.EF.Models
         public Department Department { get; set; }
 
         public List<Employee> Employees { get; set; }
+
     }
 }

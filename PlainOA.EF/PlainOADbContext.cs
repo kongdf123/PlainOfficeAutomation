@@ -14,8 +14,7 @@ namespace PlainOA.EF
         public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeeAccount> EmployeeAccounts { get; set; }
         public DbSet<Department> Departments { get; set; }
-        public DbSet<Project> Projects { get; set; }
-        public DbSet<ProjectMember> ProjectMembers { get; set; }
+        public DbSet<Project> Projects { get; set; } 
         public DbSet<TeamGroup> TeamGroups { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
@@ -31,6 +30,9 @@ namespace PlainOA.EF
                 .HasMany(t => t.Employees)
                 .WithMany(t => t.TeamGroups);
 
+            modelBuilder.Entity<Project>()
+              .HasMany(t => t.Employees)
+              .WithOptional(t => t.Project);
 
             // Configure Code First to ignore PluralizingTableName convention 
             // If you keep this convention then the generated tables will have pluralized names. 

@@ -27,5 +27,7 @@ namespace PlainOA.EF.Models
 
         public List<TeamGroup> TeamGroups { get; set; }
 
+        public Project Project { get; set; }
+
     }
 }
